@@ -1,0 +1,151 @@
+- generic [ref=f1e3]:
+  - banner [ref=f1e4]:
+    - generic [ref=f1e5]:
+      - generic [ref=f1e6]: L
+      - generic [ref=f1e7]: LinkScope
+    - generic [ref=f1e8]:
+      - generic [ref=f1e9]: ローカル処理・外部送信なし
+      - button "ドキュメント" [ref=f1e12] [cursor=pointer]
+      - button "リセット" [ref=f1e16] [cursor=pointer]
+      - button "ヘルプ" [ref=f1e20] [cursor=pointer]
+  - generic [ref=f1e24]:
+    - complementary [ref=f1e25]:
+      - navigation "分析の進行状況" [ref=f1e26]:
+        - list [ref=f1e27]:
+          - listitem [ref=f1e28]:
+            - generic [ref=f1e30]: データ読込
+            - generic [ref=f1e31]: 完了
+          - listitem [ref=f1e32]:
+            - generic [ref=f1e33]: "2"
+            - generic [ref=f1e34]: 同意確認
+            - generic [ref=f1e35]: 現在のステップ
+          - listitem [ref=f1e36]:
+            - generic [ref=f1e37]: "3"
+            - generic [ref=f1e38]: 分析設定
+            - generic [ref=f1e39]: 未完了
+          - listitem [ref=f1e40]:
+            - generic [ref=f1e41]: "4"
+            - generic [ref=f1e42]: 結果
+            - generic [ref=f1e43]: 未完了
+      - generic [ref=f1e44]:
+        - strong [ref=f1e49]: 現在のデータ
+        - strong [ref=f1e197]: synthetic-consented-demo
+        - generic [ref=f1e198]:
+          - generic [ref=f1e199]:
+            - term [ref=f1e200]: 参加者
+            - definition [ref=f1e201]: "7"
+          - generic [ref=f1e202]:
+            - term [ref=f1e203]: 接続ノード
+            - definition [ref=f1e204]: "19"
+          - generic [ref=f1e205]:
+            - term [ref=f1e206]: エッジ
+            - definition [ref=f1e207]: "33"
+        - generic [ref=f1e208]: ブラウザメモリ内のみ
+    - main [ref=f1e51]:
+      - generic [ref=f1e52]:
+        - heading "同意済みデータの類似性分析" [level=1] [ref=f1e54]
+        - button "最初から" [ref=f1e55] [cursor=pointer]
+      - generic [ref=f1e59]: 合成サンプルを読み込みました。対象者全員の同意を確認してください。
+      - region [ref=f1e60]:
+        - generic [ref=f1e61]:
+          - heading "データセット" [level=2] [ref=f1e62]
+          - generic [ref=f1e209]: 読込完了
+        - generic [ref=f1e63]:
+          - generic [ref=f1e64] [cursor=pointer]:
+            - generic [ref=f1e68]:
+              - strong [ref=f1e69]: JSON / CSV を選択
+              - generic [ref=f1e70]: またはファイルをドラッグ＆ドロップ
+            - button "JSON / CSV ファイルを選択" [ref=f1e71]
+          - button "サンプルを読み込む" [active] [ref=f1e72] [cursor=pointer]
+        - generic [ref=f1e212]:
+          - generic "synthetic-consented-demo.json" [ref=f1e216]
+          - generic [ref=f1e217]: 33 エッジ
+          - generic [ref=f1e218]: 検証済み
+          - button "クリア" [ref=f1e221] [cursor=pointer]
+      - region [ref=f1e73]:
+        - generic [ref=f1e74]:
+          - heading "同意確認" [level=2] [ref=f1e75]
+          - generic [ref=f1e76]: 必須
+        - generic [ref=f1e77]:
+          - generic [ref=f1e78] [cursor=pointer]:
+            - checkbox "対象者全員から分析への明示的な同意を得ています" [ref=f1e79]
+            - generic [ref=f1e83]: 対象者全員から分析への明示的な同意を得ています
+          - status [ref=f1e84]: 同意確認が必要です
+      - region [ref=f1e88]:
+        - generic [ref=f1e89]:
+          - heading "分析設定" [level=2] [ref=f1e90]
+          - generic [ref=f1e91]: 類似度の信号を調整
+        - generic [ref=f1e92]:
+          - generic [ref=f1e93]:
+            - generic [ref=f1e94]:
+              - text: 最低共通接続数
+              - generic "参照ノードと候補に共通する接続の最低件数" [ref=f1e95]
+            - generic [ref=f1e99]:
+              - spinbutton "最低共通接続数" [ref=f1e100]: "2"
+              - button "最低共通接続数を減らす" [ref=f1e101] [cursor=pointer]
+              - button "最低共通接続数を増やす" [ref=f1e103] [cursor=pointer]
+            - generic [ref=f1e106]: 参照ノードと候補に共通する接続の最低件数
+          - generic [ref=f1e107]:
+            - generic [ref=f1e108]:
+              - text: 類似度しきい値
+              - generic "0〜1のスコアで、これ以上の候補を表示" [ref=f1e109]
+            - generic [ref=f1e113]:
+              - spinbutton "類似度しきい値" [ref=f1e114]: "0.25"
+              - button "類似度しきい値を減らす" [ref=f1e115] [cursor=pointer]
+              - button "類似度しきい値を増やす" [ref=f1e117] [cursor=pointer]
+            - generic [ref=f1e120]: 0〜1のスコアで、これ以上の候補を表示
+          - generic [ref=f1e121]:
+            - generic [ref=f1e122]:
+              - text: 上位結果の表示件数
+              - generic "一覧に表示する最大件数" [ref=f1e123]
+            - combobox "上位結果の表示件数" [ref=f1e127]:
+              - option "5 件"
+              - option "10 件" [selected]
+              - option "20 件"
+              - option "50 件"
+            - generic [ref=f1e128]: 結果を絞り込みすぎないための上限
+          - generic [ref=f1e129]:
+            - button "分析を実行" [disabled] [ref=f1e130]
+            - status [ref=f1e133]: 対象者全員の明示的な同意を確認してください。
+      - region [ref=f1e134]:
+        - generic [ref=f1e135]:
+          - generic [ref=f1e136]:
+            - heading "結果一覧" [level=2] [ref=f1e137]
+            - generic [ref=f1e138]: 分析を実行すると結果が表示されます
+          - generic [ref=f1e139]:
+            - generic [ref=f1e140]:
+              - generic [ref=f1e141]: 候補IDまたは表示名を検索
+              - textbox "候補IDまたは表示名を検索" [disabled] [ref=f1e145]:
+                - /placeholder: 候補ID・表示名を検索
+            - generic [ref=f1e146]:
+              - generic [ref=f1e147]: 並べ替え項目
+              - combobox "並べ替え項目" [disabled] [ref=f1e148]:
+                - option "類似度順" [selected]
+                - option "共通接続数順"
+                - option "名前類似度順"
+                - option "作成時期順"
+            - button "降順" [disabled] [ref=f1e149]
+        - status [ref=f1e153]:
+          - strong [ref=f1e156]: 分析前です
+          - paragraph [ref=f1e157]: データを読み込み、同意を確認してから分析を実行してください。
+    - region [ref=f1e158]:
+      - generic [ref=f1e159]:
+        - heading "関連ネットワーク （プレビュー）" [level=2] [ref=f1e160]
+        - generic [ref=f1e161]: 共通接続を中心に表示
+      - status [ref=f1e164]:
+        - generic [ref=f1e168]: 候補を選択すると匿名ネットワークが表示されます。
+    - complementary "選択候補の詳細" [ref=f1e169]:
+      - region [ref=f1e170]:
+        - generic [ref=f1e171]:
+          - heading "スコアの内訳" [level=2] [ref=f1e172]
+          - generic [ref=f1e173]: 4信号
+        - status [ref=f1e177]:
+          - strong [ref=f1e181]: 候補を選択してください
+          - paragraph [ref=f1e182]: 結果一覧から候補を選ぶと、信号の根拠とネットワークが表示されます。
+      - region [ref=f1e183]:
+        - heading "エクスポート" [level=2] [ref=f1e185]
+        - button "結果をJSONで保存" [disabled] [ref=f1e186]
+        - paragraph [ref=f1e189]: 入力データと分析結果は外部へ送信されません。
+  - contentinfo [ref=f1e190]:
+    - generic [ref=f1e193]: 本人または全参加者の明示的な同意を得たデータ、または合成データだけを使用してください。
+    - button "安全な利用について" [ref=f1e194] [cursor=pointer]

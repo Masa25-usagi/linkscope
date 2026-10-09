@@ -1,0 +1,133 @@
+- generic [ref=e3]:
+  - banner [ref=e4]:
+    - generic [ref=e5]:
+      - generic [ref=e6]: L
+      - generic [ref=e7]: LinkScope
+    - generic [ref=e8]:
+      - generic [ref=e9]: ローカル処理・外部送信なし
+      - button "ドキュメント" [ref=e12] [cursor=pointer]
+      - button "リセット" [ref=e16] [cursor=pointer]
+      - button "ヘルプ" [ref=e20] [cursor=pointer]
+  - generic [ref=e24]:
+    - complementary [ref=e25]:
+      - navigation "分析の進行状況" [ref=e26]:
+        - list [ref=e27]:
+          - listitem [ref=e28]:
+            - generic [ref=e29]: "1"
+            - generic [ref=e30]: データ読込
+            - generic [ref=e31]: 現在のステップ
+          - listitem [ref=e32]:
+            - generic [ref=e33]: "2"
+            - generic [ref=e34]: 同意確認
+            - generic [ref=e35]: 未完了
+          - listitem [ref=e36]:
+            - generic [ref=e37]: "3"
+            - generic [ref=e38]: 分析設定
+            - generic [ref=e39]: 未完了
+          - listitem [ref=e40]:
+            - generic [ref=e41]: "4"
+            - generic [ref=e42]: 結果
+            - generic [ref=e43]: 未完了
+      - generic [ref=e44]:
+        - strong [ref=e49]: 現在のデータ
+        - paragraph [ref=e50]: 合成サンプルまたは同意済みファイルを読み込んでください。
+    - main [ref=e51]:
+      - generic [ref=e52]:
+        - heading "同意済みデータの類似性分析" [level=1] [ref=e54]
+        - button "最初から" [ref=e55] [cursor=pointer]
+      - region [ref=e60]:
+        - heading "データセット" [level=2] [ref=e62]
+        - generic [ref=e63]:
+          - generic [ref=e64] [cursor=pointer]:
+            - generic [ref=e68]:
+              - strong [ref=e69]: JSON / CSV を選択
+              - generic [ref=e70]: またはファイルをドラッグ＆ドロップ
+            - button "JSON / CSV ファイルを選択" [ref=e71]
+          - button "サンプルを読み込む" [ref=e72] [cursor=pointer]
+      - region [ref=e73]:
+        - generic [ref=e74]:
+          - heading "同意確認" [level=2] [ref=e75]
+          - generic [ref=e76]: 必須
+        - generic [ref=e77]:
+          - generic [ref=e78]:
+            - checkbox "対象者全員から分析への明示的な同意を得ています" [disabled] [ref=e79]
+            - generic [ref=e83]: 対象者全員から分析への明示的な同意を得ています
+          - status [ref=e84]: 同意確認が必要です
+      - region [ref=e88]:
+        - generic [ref=e89]:
+          - heading "分析設定" [level=2] [ref=e90]
+          - generic [ref=e91]: 類似度の信号を調整
+        - generic [ref=e92]:
+          - generic [ref=e93]:
+            - generic [ref=e94]:
+              - text: 最低共通接続数
+              - generic "参照ノードと候補に共通する接続の最低件数" [ref=e95]
+            - generic [ref=e99]:
+              - spinbutton "最低共通接続数" [disabled] [ref=e100]: "2"
+              - button "最低共通接続数を減らす" [disabled] [ref=e101]
+              - button "最低共通接続数を増やす" [disabled] [ref=e103]
+            - generic [ref=e106]: 参照ノードと候補に共通する接続の最低件数
+          - generic [ref=e107]:
+            - generic [ref=e108]:
+              - text: 類似度しきい値
+              - generic "0〜1のスコアで、これ以上の候補を表示" [ref=e109]
+            - generic [ref=e113]:
+              - spinbutton "類似度しきい値" [disabled] [ref=e114]: "0.25"
+              - button "類似度しきい値を減らす" [disabled] [ref=e115]
+              - button "類似度しきい値を増やす" [disabled] [ref=e117]
+            - generic [ref=e120]: 0〜1のスコアで、これ以上の候補を表示
+          - generic [ref=e121]:
+            - generic [ref=e122]:
+              - text: 上位結果の表示件数
+              - generic "一覧に表示する最大件数" [ref=e123]
+            - combobox "上位結果の表示件数" [disabled] [ref=e127]:
+              - option "5 件"
+              - option "10 件" [selected]
+              - option "20 件"
+              - option "50 件"
+            - generic [ref=e128]: 結果を絞り込みすぎないための上限
+          - generic [ref=e129]:
+            - button "分析を実行" [disabled] [ref=e130]
+            - status [ref=e133]: データセットを読み込んでください。
+      - region [ref=e134]:
+        - generic [ref=e135]:
+          - generic [ref=e136]:
+            - heading "結果一覧" [level=2] [ref=e137]
+            - generic [ref=e138]: 分析を実行すると結果が表示されます
+          - generic [ref=e139]:
+            - generic [ref=e140]:
+              - generic [ref=e141]: 候補IDまたは表示名を検索
+              - textbox "候補IDまたは表示名を検索" [disabled] [ref=e145]:
+                - /placeholder: 候補ID・表示名を検索
+            - generic [ref=e146]:
+              - generic [ref=e147]: 並べ替え項目
+              - combobox "並べ替え項目" [disabled] [ref=e148]:
+                - option "類似度順" [selected]
+                - option "共通接続数順"
+                - option "名前類似度順"
+                - option "作成時期順"
+            - button "降順" [disabled] [ref=e149]
+        - status [ref=e153]:
+          - strong [ref=e156]: 分析前です
+          - paragraph [ref=e157]: データを読み込み、同意を確認してから分析を実行してください。
+    - region [ref=e158]:
+      - generic [ref=e159]:
+        - heading "関連ネットワーク （プレビュー）" [level=2] [ref=e160]
+        - generic [ref=e161]: 共通接続を中心に表示
+      - status [ref=e164]:
+        - generic [ref=e168]: 候補を選択すると匿名ネットワークが表示されます。
+    - complementary "選択候補の詳細" [ref=e169]:
+      - region [ref=e170]:
+        - generic [ref=e171]:
+          - heading "スコアの内訳" [level=2] [ref=e172]
+          - generic [ref=e173]: 4信号
+        - status [ref=e177]:
+          - strong [ref=e181]: 候補を選択してください
+          - paragraph [ref=e182]: 結果一覧から候補を選ぶと、信号の根拠とネットワークが表示されます。
+      - region [ref=e183]:
+        - heading "エクスポート" [level=2] [ref=e185]
+        - button "結果をJSONで保存" [disabled] [ref=e186]
+        - paragraph [ref=e189]: 入力データと分析結果は外部へ送信されません。
+  - contentinfo [ref=e190]:
+    - generic [ref=e193]: 本人または全参加者の明示的な同意を得たデータ、または合成データだけを使用してください。
+    - button "安全な利用について" [ref=e194] [cursor=pointer]

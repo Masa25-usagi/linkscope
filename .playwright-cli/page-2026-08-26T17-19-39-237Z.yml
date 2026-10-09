@@ -1,0 +1,254 @@
+- generic [ref=e3]:
+  - banner [ref=e4]:
+    - generic [ref=e5]:
+      - generic [ref=e6]: L
+      - generic [ref=e7]: LinkScope
+    - generic [ref=e8]:
+      - generic [ref=e9]: ローカル処理・外部送信なし
+      - button "ドキュメント" [ref=e12] [cursor=pointer]
+      - button "リセット" [ref=e16] [cursor=pointer]
+      - button "ヘルプ" [ref=e20] [cursor=pointer]
+  - generic [ref=e24]:
+    - complementary [ref=e25]:
+      - navigation "分析の進行状況" [ref=e26]:
+        - list [ref=e27]:
+          - listitem [ref=e28]:
+            - generic [ref=e30]: データ読込
+            - generic [ref=e31]: 完了
+          - listitem [ref=e32]:
+            - generic [ref=e34]: 同意確認
+            - generic [ref=e35]: 完了
+          - listitem [ref=e36]:
+            - generic [ref=e38]: 分析設定
+            - generic [ref=e39]: 完了
+          - listitem [ref=e40]:
+            - generic [ref=e41]: "4"
+            - generic [ref=e42]: 結果
+            - generic [ref=e43]: 現在のステップ
+      - generic [ref=e44]:
+        - strong [ref=e49]: 現在のデータ
+        - strong [ref=e198]: synthetic-consented-demo
+        - generic [ref=e199]:
+          - generic [ref=e200]:
+            - term [ref=e201]: 参加者
+            - definition [ref=e202]: "7"
+          - generic [ref=e203]:
+            - term [ref=e204]: 接続ノード
+            - definition [ref=e205]: "19"
+          - generic [ref=e206]:
+            - term [ref=e207]: エッジ
+            - definition [ref=e208]: "33"
+        - generic [ref=e209]: ブラウザメモリ内のみ
+    - main [ref=e51]:
+      - generic [ref=e52]:
+        - generic [ref=e53]:
+          - text: CONSENTED DATA ANALYSIS
+          - heading "同意済みデータの類似性分析" [level=1] [ref=e54]
+        - button "最初から" [ref=e55] [cursor=pointer]
+      - generic [ref=e59]: 3件の候補を分析しました。類似度は同一性の確率ではありません。
+      - region [ref=e60]:
+        - generic [ref=e61]:
+          - heading "データセット" [level=2] [ref=e62]
+          - generic [ref=e210]: 読込完了
+        - generic [ref=e63]:
+          - generic [ref=e64] [cursor=pointer]:
+            - generic [ref=e68]:
+              - strong [ref=e69]: JSON / CSV を選択
+              - generic [ref=e70]: またはファイルをドラッグ＆ドロップ
+            - button "JSON / CSV を選択 またはファイルをドラッグ＆ドロップ" [ref=e71]
+          - button "サンプルを読み込む" [ref=e72] [cursor=pointer]
+        - generic [ref=e213]:
+          - generic "synthetic-consented-demo.json" [ref=e217]
+          - generic [ref=e218]: 33 エッジ
+          - generic [ref=e219]: 検証済み
+          - button "クリア" [ref=e222] [cursor=pointer]
+        - generic "データ概要" [ref=e223]:
+          - generic [ref=e224]:
+            - generic [ref=e225]: 参照ノード
+            - strong [ref=e226]: participant_ref
+          - generic [ref=e227]:
+            - generic [ref=e228]: 参加者
+            - strong [ref=e229]: "7"
+          - generic [ref=e230]:
+            - generic [ref=e231]: 接続ノード
+            - strong [ref=e232]: "19"
+          - generic [ref=e233]:
+            - generic [ref=e234]: エッジ
+            - strong [ref=e235]: "33"
+      - region [ref=e73]:
+        - generic [ref=e74]:
+          - heading "同意確認" [level=2] [ref=e75]
+          - generic [ref=e76]: 必須
+        - generic [ref=e77]:
+          - generic [ref=e78] [cursor=pointer]:
+            - checkbox "対象者全員から分析への明示的な同意を得ています" [checked] [ref=e79]
+            - generic [ref=e83]: 対象者全員から分析への明示的な同意を得ています
+          - status [ref=e84]: 同意が確認されました
+        - paragraph [ref=e88]: 同意のないデータや非公開情報は解析しないでください。チェックはこのページのメモリ内だけで使用します。
+      - region [ref=e89]:
+        - generic [ref=e90]:
+          - heading "分析設定" [level=2] [ref=e91]
+          - generic [ref=e92]: 類似度の信号を調整
+        - generic [ref=e93]:
+          - generic [ref=e94]:
+            - generic [ref=e95]:
+              - text: 最低共通接続数
+              - generic "参照ノードと候補に共通する接続の最低件数" [ref=e96]
+            - generic [ref=e100]:
+              - spinbutton "最低共通接続数" [ref=e101]: "2"
+              - button "最低共通接続数を減らす" [ref=e102] [cursor=pointer]
+              - button "最低共通接続数を増やす" [ref=e104] [cursor=pointer]
+            - generic [ref=e107]: 参照ノードと候補に共通する接続の最低件数
+          - generic [ref=e108]:
+            - generic [ref=e109]:
+              - text: 類似度しきい値
+              - generic "0〜1のスコアで、これ以上の候補を表示" [ref=e110]
+            - generic [ref=e114]:
+              - spinbutton "類似度しきい値" [ref=e115]: "0.25"
+              - button "類似度しきい値を減らす" [ref=e116] [cursor=pointer]
+              - button "類似度しきい値を増やす" [ref=e118] [cursor=pointer]
+            - generic [ref=e121]: 0〜1のスコアで、これ以上の候補を表示
+          - generic [ref=e122]:
+            - generic [ref=e123]:
+              - text: 上位結果の表示件数
+              - generic "一覧に表示する最大件数" [ref=e124]
+            - combobox "上位結果の表示件数" [ref=e128]:
+              - option "5 件"
+              - option "10 件" [selected]
+              - option "20 件"
+              - option "50 件"
+            - generic [ref=e129]: 結果を絞り込みすぎないための上限
+          - generic [ref=e130]:
+            - button "分析を実行" [active] [ref=e131] [cursor=pointer]
+            - status [ref=e134]: 同意確認済み。ブラウザ内で解析します。
+      - region [ref=e135]:
+        - generic [ref=e136]:
+          - generic [ref=e137]:
+            - heading "結果一覧" [level=2] [ref=e138]
+            - generic [ref=e139]: "フィルター: すべての結果"
+          - generic [ref=e140]:
+            - generic [ref=e141]:
+              - generic [ref=e142]: 候補IDまたは表示名を検索
+              - textbox "候補IDまたは表示名を検索" [ref=e146]:
+                - /placeholder: 候補ID・表示名を検索
+            - generic [ref=e147]:
+              - generic [ref=e148]: 並べ替え項目
+              - combobox "並べ替え項目" [ref=e149]:
+                - option "類似度順" [selected]
+                - option "共通接続数順"
+                - option "名前類似度順"
+                - option "作成時期順"
+            - button "降順" [ref=e150] [cursor=pointer]
+        - table [ref=e242]:
+          - caption [ref=e243]: 候補の類似度一覧
+          - rowgroup [ref=e244]:
+            - row [ref=e245]:
+              - columnheader "選択" [ref=e246]
+              - columnheader "候補ID" [ref=e248]
+              - columnheader "類似度" [ref=e249]
+              - columnheader "共通接続" [ref=e250]
+              - columnheader "名前の類似" [ref=e251]
+              - columnheader "説明" [ref=e252]
+          - rowgroup [ref=e253]:
+            - row [ref=e254] [cursor=pointer]:
+              - cell [ref=e255]:
+                - radio "participant_07を選択" [checked] [ref=e256]
+              - rowheader "participant_07 Ref study" [ref=e257]:
+                - generic [ref=e258]: participant_07
+                - generic [ref=e259]: Ref study
+              - cell [ref=e260]:
+                - strong [ref=e262]: "0.63"
+              - cell "6 件" [ref=e265]
+              - cell [ref=e266]:
+                - strong [ref=e268]: "0.15"
+              - cell "6件の共通接続が確認されました。" [ref=e271]
+            - row [ref=e272] [cursor=pointer]:
+              - cell [ref=e273]:
+                - radio "participant_12を選択" [ref=e274]
+              - rowheader "participant_12 Reference studies" [ref=e275]:
+                - generic [ref=e276]: participant_12
+                - generic [ref=e277]: Reference studies
+              - cell [ref=e278]:
+                - strong [ref=e280]: "0.52"
+              - cell "4 件" [ref=e283]
+              - cell [ref=e284]:
+                - strong [ref=e286]: "0.47"
+              - cell "4件の共通接続が確認されました。" [ref=e289]
+            - row [ref=e290] [cursor=pointer]:
+              - cell [ref=e291]:
+                - radio "participant_21を選択" [ref=e292]
+              - rowheader "participant_21 Ref notes" [ref=e293]:
+                - generic [ref=e294]: participant_21
+                - generic [ref=e295]: Ref notes
+              - cell [ref=e296]:
+                - strong [ref=e298]: "0.33"
+              - cell "2 件" [ref=e301]
+              - cell [ref=e302]:
+                - strong [ref=e304]: "0.15"
+              - cell "2件の共通接続が確認されました。" [ref=e307]
+        - generic [ref=e308]: 3 件の候補
+    - region [ref=e159]:
+      - generic [ref=e160]:
+        - heading "関連ネットワーク （プレビュー）" [level=2] [ref=e161]
+        - generic [ref=e162]: 共通接続を中心に表示
+      - img "participant_07と参照ノードの匿名ネットワーク。共通接続は6件" [ref=e310]:
+        - generic [ref=e333]: participant_ref
+        - generic [ref=e336]: participant_07
+      - generic "ネットワーク凡例" [ref=e357]:
+        - generic [ref=e358]: 直接接続
+        - generic [ref=e360]: 共通接続
+        - generic [ref=e362]: 参照
+        - generic [ref=e364]: 候補
+      - paragraph [ref=e366]: 表示している接続IDは入力データ由来の匿名ラベルです（最大 6 件の共通接続）。
+    - complementary "選択候補の詳細" [ref=e170]:
+      - region [ref=e171]:
+        - generic [ref=e172]:
+          - heading "スコアの内訳" [level=2] [ref=e173]
+          - generic [ref=e174]: 4信号
+        - generic [ref=e367]:
+          - generic [ref=e368]:
+            - text: "選択中:"
+            - strong [ref=e369]: participant_07
+          - generic [ref=e370]:
+            - generic [ref=e371]: 総合類似度
+            - strong [ref=e372]: "0.63"
+            - generic [ref=e373]: / 1.00
+        - generic "スコア信号の内訳" [ref=e374]:
+          - generic [ref=e375]:
+            - generic [ref=e376]:
+              - generic [ref=e377]: 共通接続
+              - generic [ref=e378]: 信号 0.67 · 寄与 0.33
+            - strong [ref=e381]: 53%
+          - generic [ref=e382]:
+            - generic [ref=e383]:
+              - generic [ref=e384]: 接続パターン
+              - generic [ref=e385]: 信号 0.88 · 寄与 0.18
+            - strong [ref=e388]: 28%
+          - generic [ref=e389]:
+            - generic [ref=e390]:
+              - generic [ref=e391]: 表示名の類似
+              - generic [ref=e392]: 信号 0.15 · 寄与 0.03
+            - strong [ref=e395]: 5%
+          - generic [ref=e396]:
+            - generic [ref=e397]:
+              - generic [ref=e398]: 作成時期
+              - generic [ref=e399]: 信号 0.95 · 寄与 0.10
+            - strong [ref=e402]: 15%
+        - paragraph [ref=e407]:
+          - strong [ref=e408]: 一致を断定するものではありません
+          - text: この結果は観測可能な類似性信号の要約です。同一人物であることを示す確率や身元判定ではありません。
+        - generic [ref=e409]:
+          - heading "選択中の候補の詳細" [level=3] [ref=e410]
+          - list [ref=e411]:
+            - listitem [ref=e412]: 共通接続は 6 件です。
+            - listitem [ref=e413]: 接続パターン信号は 0.88 です。
+            - listitem [ref=e414]: 表示名の類似信号は 0.15 です。
+            - listitem [ref=e415]: "作成時期: 2024-02-01。"
+          - paragraph [ref=e416]: 6件の共通接続が確認されました。表示名の類似信号は限定的です。作成時期の近さも反映されています。これは「participant_ref」と「participant_07」の観測可能な信号を要約した類似度であり、同一人物であることを示すものではありません。
+      - region [ref=e184]:
+        - heading "エクスポート" [level=2] [ref=e186]
+        - button "結果をJSONで保存" [ref=e187] [cursor=pointer]
+        - paragraph [ref=e190]: 入力データと分析結果は外部へ送信されません。
+  - contentinfo [ref=e191]:
+    - generic [ref=e194]: 本人または全参加者の明示的な同意を得たデータ、または合成データだけを使用してください。
+    - button "安全な利用について" [ref=e195] [cursor=pointer]
