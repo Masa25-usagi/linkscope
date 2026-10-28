@@ -171,7 +171,7 @@ export function NetworkPreview({
               </svg>
             </div>
             <div className="network-legend" aria-label="ネットワーク凡例">
-              <span><i className="legend-dot" style={{ background: '#312e81' }} /> ターゲット（本人）</span>
+              <span><i className="legend-dot legend-reference" /> ターゲット（本人）</span>
               <span><i className="legend-dot" style={{ background: '#0d9488' }} /> 共通FFの親密ユーザー</span>
               <span><i className="legend-dot" style={{ background: '#94a3b8' }} /> その他親密ユーザー</span>
               <span><i className="legend-dot" style={{ background: '#0d9488', border: '2px solid #fff' }} /> 鍵垢候補</span>
