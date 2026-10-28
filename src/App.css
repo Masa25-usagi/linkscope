@@ -1,10 +1,13 @@
 .app-frame {
   min-height: 100svh;
   color: var(--ink);
-  background: #fff;
+  background: var(--bg-app);
 }
 
 .app-header {
+  position: sticky;
+  z-index: 30;
+  top: 0;
   min-height: 58px;
   display: flex;
   align-items: center;
@@ -12,7 +15,9 @@
   gap: 20px;
   padding: 0 28px;
   border-bottom: 1px solid var(--line);
-  background: #fff;
+  background: var(--header-bg);
+  backdrop-filter: saturate(1.4) blur(12px);
+  -webkit-backdrop-filter: saturate(1.4) blur(12px);
 }
 
 .brand-wrap,
@@ -51,8 +56,9 @@
   display: grid;
   place-items: center;
   border-radius: 8px;
-  color: #fff;
-  background: var(--indigo);
+  color: var(--on-accent);
+  background: linear-gradient(135deg, var(--indigo) 0%, var(--indigo-dark) 100%);
+  box-shadow: var(--shadow-accent);
   font-size: 17px;
   font-weight: 750;
 }
@@ -119,7 +125,7 @@
   min-height: calc(100svh - 116px);
   padding: 30px 18px 22px;
   border-right: 1px solid var(--line);
-  background: #fff;
+  background: var(--bg-sidebar);
 }
 
 .workspace {
@@ -135,7 +141,7 @@
   min-height: calc(100svh - 116px);
   padding: 20px 20px 26px;
   border-left: 1px solid var(--line);
-  background: #fcfdff;
+  background: var(--bg-inspector);
 }
 
 .network-panel {
@@ -181,9 +187,10 @@
   margin-bottom: 10px;
   padding: 13px 15px;
   border: 1px solid var(--line);
-  border-radius: 10px;
+  border-radius: var(--radius-lg);
   background: var(--panel-bg);
   box-shadow: var(--shadow);
+  transition: border-color var(--duration) var(--easing), box-shadow var(--duration) var(--easing);
 }
 
 .panel-heading-row {
@@ -223,13 +230,14 @@
   border-radius: 7px;
   font-weight: 680;
   white-space: nowrap;
-  transition: background-color 160ms ease, border-color 160ms ease, color 160ms ease;
+  transition: background-color var(--duration) var(--easing), border-color var(--duration) var(--easing), color var(--duration) var(--easing), box-shadow var(--duration) var(--easing), transform 120ms var(--easing);
 }
 
 .button-primary {
-  color: #fff;
+  color: var(--on-accent);
   border-color: var(--indigo);
   background: var(--indigo);
+  box-shadow: var(--shadow-accent);
 }
 
 .button-primary:hover:not(:disabled) {
@@ -238,19 +246,20 @@
 }
 
 .button-primary:disabled {
-  color: #737995;
-  border-color: #d7daf0;
-  background: #dfe1f4;
+  color: var(--disabled-fg);
+  border-color: var(--disabled-border);
+  background: var(--disabled-bg);
+  box-shadow: none;
 }
 
 .button-outline {
   color: var(--indigo-dark);
   border-color: var(--indigo);
-  background: #fff;
+  background: var(--panel-bg);
 }
 
 .button-outline:hover:not(:disabled) {
-  color: #fff;
+  color: var(--on-accent);
   background: var(--indigo);
 }
 
@@ -259,7 +268,7 @@
   padding: 6px 10px;
   color: var(--ink);
   border-color: var(--line-strong);
-  background: #fff;
+  background: var(--panel-bg);
 }
 
 .button-ghost:hover:not(:disabled) {
@@ -277,9 +286,9 @@
 .status-pill {
   gap: 4px;
   padding: 3px 8px;
-  border: 1px solid #a5dfd9;
+  border: 1px solid var(--success-border);
   border-radius: 999px;
-  color: #087e7a;
+  color: var(--success-text);
   background: var(--teal-soft);
   font-size: 11px;
   font-weight: 700;
@@ -298,13 +307,13 @@
   justify-content: center;
   gap: 13px;
   padding: 11px 15px;
-  border: 1.5px dashed #9da5b6;
-  border-radius: 8px;
+  border: 1.5px dashed var(--control-border);
+  border-radius: 10px;
   color: var(--muted);
-  background: #fbfcfe;
+  background: var(--surface);
   cursor: pointer;
   text-align: left;
-  transition: border-color 160ms ease, background-color 160ms ease;
+  transition: border-color var(--duration) var(--easing), background-color var(--duration) var(--easing);
 }
 
 .dropzone:hover,
@@ -485,13 +494,13 @@
 
 .message-error {
   color: var(--error);
-  border-color: #efc5c9;
+  border-color: var(--error-border);
   background: var(--error-soft);
 }
 
 .message-warning {
-  color: #956000;
-  border-color: #f3d68f;
+  color: var(--warning-text);
+  border-color: var(--warning-border);
   background: var(--amber-soft);
 }
 
@@ -523,10 +532,11 @@
   display: grid;
   flex: 0 0 auto;
   place-items: center;
-  border: 2px solid #aeb6c8;
+  border: 2px solid var(--control-border);
   border-radius: 5px;
-  color: #fff;
-  background: #fff;
+  color: var(--on-accent);
+  background: var(--panel-bg);
+  transition: border-color var(--duration) var(--easing), background-color var(--duration) var(--easing);
 }
 
 .checkbox-label input:checked + .custom-checkbox {
@@ -553,8 +563,8 @@
 }
 
 .consent-status.is-confirmed {
-  color: #087e7a;
-  border-color: #a5dfd9;
+  color: var(--success-text);
+  border-color: var(--success-border);
   background: var(--teal-soft);
 }
 
@@ -602,7 +612,8 @@
   overflow: hidden;
   border: 1px solid var(--line-strong);
   border-radius: 6px;
-  background: #fff;
+  background: var(--panel-bg);
+  transition: border-color var(--duration) var(--easing), box-shadow var(--duration) var(--easing);
 }
 
 .stepper input,
@@ -611,7 +622,7 @@
   min-height: 38px;
   color: var(--ink);
   border: 0;
-  background: #fff;
+  background: var(--panel-bg);
 }
 
 .stepper input {
@@ -632,7 +643,8 @@
   border: 0;
   border-left: 1px solid var(--line);
   color: var(--ink);
-  background: #fff;
+  background: var(--panel-bg);
+  transition: color var(--duration) var(--easing), background-color var(--duration) var(--easing);
 }
 
 .stepper button:hover:not(:disabled) {
@@ -641,7 +653,7 @@
 }
 
 .stepper button:disabled {
-  color: #c1c6d1;
+  color: var(--disabled-control);
 }
 
 .field-group select {
@@ -705,7 +717,8 @@
   border: 1px solid var(--line-strong);
   border-radius: 6px;
   color: var(--muted);
-  background: #fff;
+  background: var(--panel-bg);
+  transition: border-color var(--duration) var(--easing), box-shadow var(--duration) var(--easing);
 }
 
 .search-field input {
@@ -726,7 +739,7 @@
   border: 1px solid var(--line-strong);
   border-radius: 6px;
   color: var(--ink);
-  background: #fff;
+  background: var(--panel-bg);
   font-size: 12px;
 }
 
@@ -770,9 +783,13 @@ tbody tr {
   cursor: pointer;
 }
 
+tbody tr {
+  transition: background-color 140ms var(--easing);
+}
+
 tbody tr:hover,
 tbody tr.is-selected {
-  background: #f3f4ff;
+  background: var(--row-hover);
 }
 
 tbody tr.is-selected {
@@ -826,7 +843,7 @@ th {
   height: 5px;
   overflow: hidden;
   border-radius: 999px;
-  background: #e1e4ed;
+  background: var(--meter-track);
 }
 
 .mini-meter span {
@@ -899,7 +916,7 @@ th {
   padding: 10px 11px;
   border: 1px solid var(--line);
   border-radius: 7px;
-  background: #fff;
+  background: var(--surface);
 }
 
 .selected-summary > span {
@@ -982,7 +999,7 @@ th {
   height: 7px;
   overflow: hidden;
   border-radius: 999px;
-  background: #e1e4ed;
+  background: var(--meter-track);
 }
 
 .meter-fill {
@@ -1014,9 +1031,9 @@ th {
   gap: 8px;
   margin-top: 14px;
   padding: 10px;
-  border: 1px solid #f0c65e;
+  border: 1px solid var(--notice-border);
   border-radius: 7px;
-  color: #986000;
+  color: var(--notice-text);
   background: var(--amber-soft);
 }
 
@@ -1089,7 +1106,7 @@ th {
   overflow: hidden;
   border: 1px solid var(--line);
   border-radius: 6px;
-  background: #fcfdff;
+  background: var(--bg-inspector);
 }
 
 .network-canvas svg {
@@ -1098,12 +1115,12 @@ th {
 }
 
 .network-edge {
-  stroke: #8993a7;
+  stroke: var(--net-edge);
   stroke-width: 1.4;
 }
 
 .network-edge-common {
-  stroke: #7884aa;
+  stroke: var(--net-edge-common);
   stroke-dasharray: 5 4;
 }
 
@@ -1113,23 +1130,23 @@ th {
 
 .network-node-reference {
   fill: var(--indigo);
-  stroke: #202873;
+  stroke: var(--indigo-dark);
 }
 
 .network-node-candidate {
-  fill: #fff;
+  fill: var(--panel-bg);
   stroke: var(--teal);
   stroke-width: 2.5;
 }
 
 .network-node-common {
-  fill: #dce2f7;
-  stroke: #7584be;
+  fill: var(--net-common-fill);
+  stroke: var(--net-common-stroke);
 }
 
 .network-node-other {
-  fill: #eef0f4;
-  stroke: #9ca5b5;
+  fill: var(--net-other-fill);
+  stroke: var(--net-other-stroke);
 }
 
 .network-label {
@@ -1154,7 +1171,7 @@ th {
   width: 23px;
   height: 0;
   display: inline-block;
-  border-top: 1.5px solid #8993a7;
+  border-top: 1.5px solid var(--net-edge);
 }
 
 .legend-dashed {
@@ -1176,7 +1193,7 @@ th {
 
 .legend-candidate {
   border-color: var(--teal);
-  background: #fff;
+  background: var(--panel-bg);
 }
 
 .network-caption {
@@ -1215,12 +1232,13 @@ th {
   height: 34px;
   display: grid;
   place-items: center;
-  border: 1px solid #9ea7b8;
+  border: 1px solid var(--control-border);
   border-radius: 50%;
   color: var(--ink);
-  background: #fff;
+  background: var(--panel-bg);
   font-size: 16px;
   font-weight: 700;
+  transition: color var(--duration) var(--easing), border-color var(--duration) var(--easing), background-color var(--duration) var(--easing), box-shadow var(--duration) var(--easing);
 }
 
 .step-label {
@@ -1231,9 +1249,10 @@ th {
 }
 
 .step-rail li.is-current .step-marker {
-  color: #fff;
+  color: var(--on-accent);
   border-color: var(--indigo);
   background: var(--indigo);
+  box-shadow: 0 0 0 4px var(--indigo-soft);
 }
 
 .step-rail li.is-current .step-label {
@@ -1252,9 +1271,10 @@ th {
 .workflow-meta-card {
   margin-top: 27px;
   padding: 12px 11px;
-  border: 1px solid var(--line-strong);
-  border-radius: 8px;
-  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: var(--panel-bg);
+  box-shadow: var(--shadow);
 }
 
 .workflow-meta-title {
@@ -1318,7 +1338,7 @@ th {
   padding: 10px 20px;
   border-top: 1px solid var(--line);
   color: var(--indigo-dark);
-  background: #fbfcff;
+  background: var(--bg-footer);
   font-size: 11px;
   text-align: center;
 }
@@ -1335,12 +1355,15 @@ th {
 
 .dialog-backdrop {
   position: fixed;
-  z-index: 20;
+  z-index: 40;
   inset: 0;
   display: grid;
   place-items: center;
   padding: 20px;
-  background: rgb(22 28 52 / 28%);
+  background: var(--backdrop);
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
+  animation: fade-in 160ms var(--easing);
 }
 
 .help-dialog {
@@ -1349,9 +1372,10 @@ th {
   overflow: auto;
   padding: 20px;
   border: 1px solid var(--line-strong);
-  border-radius: 10px;
-  background: #fff;
-  box-shadow: 0 18px 50px rgb(22 29 59 / 18%);
+  border-radius: 14px;
+  background: var(--panel-bg);
+  box-shadow: var(--shadow-lg);
+  animation: dialog-in 200ms cubic-bezier(0.2, 0.9, 0.3, 1.2);
 }
 
 .dialog-heading {
@@ -1375,7 +1399,8 @@ th {
   border: 1px solid var(--line-strong);
   border-radius: 7px;
   color: var(--ink);
-  background: #fff;
+  background: var(--panel-bg);
+  transition: color var(--duration) var(--easing), border-color var(--duration) var(--easing), background-color var(--duration) var(--easing);
 }
 
 .dialog-content {
@@ -1396,9 +1421,9 @@ th {
   align-items: flex-start;
   gap: 8px;
   padding: 10px;
-  border: 1px solid #a5dfd9;
+  border: 1px solid var(--success-border);
   border-radius: 7px;
-  color: #087e7a;
+  color: var(--success-text);
   background: var(--teal-soft);
 }
 
@@ -1460,8 +1485,8 @@ th {
     padding: 10px;
     border: 1px solid var(--line);
     border-radius: 8px;
-    background: #fff;
-    box-shadow: var(--shadow);
+    background: var(--panel-bg);
+    box-shadow: var(--shadow-lg);
   }
 
   .header-actions.is-open {
@@ -1576,7 +1601,7 @@ th {
     padding: 10px 14px 0;
     border-top: 1px solid var(--line);
     border-left: 0;
-    background: #fff;
+    background: var(--bg-app);
   }
 
   .app-footer {
@@ -1727,8 +1752,9 @@ th {
     border: 0;
     border-bottom: 1px solid var(--line);
     color: var(--ink);
-    background: #fff;
+    background: var(--panel-bg);
     text-align: left;
+    transition: background-color 140ms var(--easing);
   }
 
   .mobile-result-card:last-child {
@@ -1737,7 +1763,7 @@ th {
 
   .mobile-result-card.is-selected {
     color: var(--indigo-dark);
-    background: #f2f3ff;
+    background: var(--row-hover);
     box-shadow: inset 3px 0 var(--indigo);
   }
 
@@ -1752,13 +1778,13 @@ th {
     width: 17px;
     height: 17px;
     display: block;
-    border: 2px solid #9ea7b8;
+    border: 2px solid var(--control-border);
     border-radius: 50%;
   }
 
   .radio-dot.is-selected {
     border-color: var(--indigo);
-    box-shadow: inset 0 0 0 3px #fff;
+    box-shadow: inset 0 0 0 3px var(--panel-bg);
     background: var(--indigo);
   }
 
@@ -1911,7 +1937,7 @@ th {
   font-size: 15px;
   font-weight: 600;
   color: var(--ink);
-  background: #fff;
+  background: var(--panel-bg);
   outline: none;
   transition: border-color 0.2s, box-shadow 0.2s;
 }
@@ -1940,7 +1966,8 @@ th {
   padding: 10px;
   border: 1px solid var(--line);
   border-radius: 8px;
-  background: #fff;
+  background: var(--panel-bg);
+  transition: border-color var(--duration) var(--easing), box-shadow var(--duration) var(--easing);
 }
 
 .close-friend-avatar {
@@ -2012,7 +2039,7 @@ th {
 .scan-progress-bar {
   width: 100%;
   height: 8px;
-  background: #e2e8f0;
+  background: var(--meter-track);
   border-radius: 999px;
   overflow: hidden;
 }
@@ -2024,7 +2051,7 @@ th {
 }
 
 .scan-progress-fill.is-error {
-  background: #e11d48;
+  background: var(--scan-error);
 }
 
 .scan-progress-message {
@@ -2055,8 +2082,8 @@ th {
   font-size: 11px;
   padding: 2px 6px;
   border-radius: 4px;
-  background: #fef3c7;
-  color: #92400e;
+  background: var(--badge-amber-bg);
+  color: var(--badge-amber-text);
   font-weight: 600;
 }
 
@@ -2077,16 +2104,152 @@ th {
 }
 
 .status-pill.status-safe {
-  background: #dcfce7;
-  color: #166534;
+  background: var(--safe-bg);
+  color: var(--safe-text);
 }
 
 .status-pill.status-error {
-  background: #fee2e2;
-  color: #991b1b;
+  background: var(--err-bg);
+  color: var(--err-text);
 }
 
 .breakdown-row.is-negative .breakdown-meter .meter-fill {
-  background: #f59e0b;
+  background: var(--meter-negative);
 }
 
+/* ── UI リファイン: マイクロインタラクション & モーション ── */
+
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes dialog-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes rise-in {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ワークスペースのパネルを穏やかにフェードイン */
+.workspace .panel,
+.network-panel {
+  animation: rise-in 280ms var(--easing) backwards;
+}
+
+.workspace .panel:nth-of-type(2) { animation-delay: 40ms; }
+.workspace .panel:nth-of-type(3) { animation-delay: 80ms; }
+.workspace .panel:nth-of-type(4) { animation-delay: 120ms; }
+
+/* ボタンの押下感 */
+.button-primary:hover:not(:disabled) {
+  box-shadow: 0 4px 12px rgb(41 55 157 / 30%);
+  transform: translateY(-1px);
+}
+
+.button-primary:active:not(:disabled),
+.button-outline:active:not(:disabled),
+.button-ghost:active:not(:disabled),
+.icon-button:active:not(:disabled) {
+  transform: translateY(0) scale(0.98);
+}
+
+.button-outline,
+.button-ghost {
+  transition: background-color var(--duration) var(--easing), border-color var(--duration) var(--easing), color var(--duration) var(--easing), transform 120ms var(--easing);
+}
+
+/* アイコンボタン・メニューのホバー */
+.icon-button:hover:not(:disabled) {
+  color: var(--indigo);
+  border-color: var(--indigo);
+  background: var(--indigo-soft);
+}
+
+.menu-toggle:hover:not(:disabled) {
+  border-radius: 8px;
+  background: var(--indigo-soft);
+}
+
+/* 入力系のフォーカスリング(フォーカス可能な内部要素を持つコンテナ) */
+.search-field:focus-within,
+.stepper:focus-within {
+  border-color: var(--indigo);
+  box-shadow: 0 0 0 3px var(--focus-ring);
+}
+
+.dropzone:focus-visible {
+  outline: 3px solid var(--focus-ring);
+  outline-offset: 2px;
+}
+
+/* ヘッダーリンクのトランジション */
+.header-link {
+  border-radius: 6px;
+  transition: color var(--duration) var(--easing), background-color var(--duration) var(--easing);
+}
+
+/* ステップレール: 完了済みコネクタを強調 */
+.step-rail li.is-complete:not(:last-child)::after {
+  background: var(--teal);
+}
+
+.step-label {
+  transition: color var(--duration) var(--easing);
+}
+
+/* スコアメーターのアニメーション */
+.mini-meter span,
+.meter-fill,
+.scan-progress-fill {
+  transition: width 300ms var(--easing);
+}
+
+/* 候補カード(オンライン)のホバー */
+.close-friend-card:hover {
+  border-color: var(--line-strong);
+  box-shadow: var(--shadow);
+}
+
+/* 空状態: 破線枠で「まだ何もない」ことを視覚化 */
+.empty-state,
+.inspector-empty,
+.network-empty {
+  border: 1.5px dashed var(--line-strong);
+  border-radius: var(--radius-md);
+}
+
+/* ダイアログ内リンク・フッターボタンのホバー */
+.app-footer button {
+  border-radius: 4px;
+  transition: color var(--duration) var(--easing);
+}
+
+.app-footer button:hover {
+  color: var(--indigo-dark);
+}
+
+/* テーブルヘッダの視認性 */
+thead th {
+  letter-spacing: 0.02em;
+}
+
+/* 選択行ラジオのトランジション */
+.radio-column input {
+  cursor: pointer;
+}
