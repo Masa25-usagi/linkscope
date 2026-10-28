@@ -1,15 +1,26 @@
 :root {
+  color-scheme: light;
   font-family: -apple-system, BlinkMacSystemFont, "Hiragino Kaku Gothic ProN", "Yu Gothic", "YuGothic", "Noto Sans JP", "Segoe UI", sans-serif;
+  font-size: 15px;
+  line-height: 1.5;
   color: #20253b;
   background: #ffffff;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
+
+  /* ── カラートークン: テキスト ── */
   --ink: #20253b;
   --muted: #697288;
   --faint: #8a93a5;
+  --text-muted: var(--muted);
+  --text-faint: var(--faint);
+
+  /* ── カラートークン: 罫線 ── */
   --line: #dfe3ec;
   --line-strong: #cbd1de;
+
+  /* ── カラートークン: アクセント ── */
   --indigo: #29379d;
   --indigo-dark: #202873;
   --indigo-soft: #eff1ff;
@@ -19,11 +30,135 @@
   --amber-soft: #fff8e8;
   --error: #b43c44;
   --error-soft: #fff1f2;
+  --on-accent: #ffffff;
+
+  /* ── カラートークン: サーフェス ── */
+  --bg-app: #ffffff;
+  --header-bg: rgb(255 255 255 / 82%);
+  --bg-sidebar: #ffffff;
+  --bg-inspector: #fcfdff;
+  --bg-footer: #fbfcff;
   --panel-bg: #ffffff;
   --surface: #f8f9fc;
-  --shadow: 0 2px 7px rgb(31 45 80 / 5%);
-  font-size: 15px;
-  line-height: 1.5;
+  --row-hover: #f3f4ff;
+
+  /* ── カラートークン: コントロール ── */
+  --control-border: #9da5b6;
+  --meter-track: #e1e4ed;
+  --disabled-fg: #737995;
+  --disabled-border: #d7daf0;
+  --disabled-bg: #dfe1f4;
+  --disabled-control: #c1c6d1;
+
+  /* ── カラートークン: ステータス ── */
+  --success-text: #087e7a;
+  --success-border: #a5dfd9;
+  --warning-text: #956000;
+  --warning-border: #f3d68f;
+  --notice-text: #986000;
+  --notice-border: #f0c65e;
+  --error-border: #efc5c9;
+  --safe-bg: #dcfce7;
+  --safe-text: #166534;
+  --err-bg: #fee2e2;
+  --err-text: #991b1b;
+  --badge-amber-bg: #fef3c7;
+  --badge-amber-text: #92400e;
+  --scan-error: #e11d48;
+  --meter-negative: #f59e0b;
+
+  /* ── カラートークン: ネットワークグラフ ── */
+  --net-edge: #8993a7;
+  --net-edge-common: #7884aa;
+  --net-common-fill: #dce2f7;
+  --net-common-stroke: #7584be;
+  --net-other-fill: #eef0f4;
+  --net-other-stroke: #9ca5b5;
+
+  /* ── エレベーション / エフェクト ── */
+  --shadow: 0 1px 2px rgb(31 45 80 / 4%), 0 3px 10px rgb(31 45 80 / 5%);
+  --shadow-lg: 0 18px 50px rgb(22 29 59 / 18%);
+  --shadow-accent: 0 2px 6px rgb(41 55 157 / 28%);
+  --backdrop: rgb(22 28 52 / 28%);
+  --focus-ring: rgb(52 75 185 / 35%);
+
+  /* ── 形状 / モーション ── */
+  --radius-sm: 6px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --duration: 160ms;
+  --easing: ease;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: dark;
+    color: #e7eaf6;
+    background: #0c1022;
+
+    --ink: #e7eaf6;
+    --muted: #9aa4c2;
+    --faint: #6d7694;
+
+    --line: #29305a;
+    --line-strong: #3a4270;
+
+    --indigo: #8b9cf9;
+    --indigo-dark: #aeb9fb;
+    --indigo-soft: #26305c;
+    --teal: #2dd4bf;
+    --teal-soft: #0e2f2c;
+    --amber: #fbbf24;
+    --amber-soft: #3a2c0b;
+    --error: #f87171;
+    --error-soft: #3d1c22;
+    --on-accent: #10142c;
+
+    --bg-app: #0c1022;
+    --header-bg: rgb(12 16 34 / 78%);
+    --bg-sidebar: #10152e;
+    --bg-inspector: #10152e;
+    --bg-footer: #10152e;
+    --panel-bg: #161c38;
+    --surface: #1c2344;
+    --row-hover: #232b54;
+
+    --control-border: #4a547f;
+    --meter-track: #2a3258;
+    --disabled-fg: #6f7795;
+    --disabled-border: #333b63;
+    --disabled-bg: #232a4e;
+    --disabled-control: #4a5170;
+
+    --success-text: #5eead4;
+    --success-border: #1f5c55;
+    --warning-text: #fcd34d;
+    --warning-border: #6b4e12;
+    --notice-text: #fcd34d;
+    --notice-border: #6b4e12;
+    --error-border: #6e2b35;
+    --safe-bg: #14332a;
+    --safe-text: #4ade80;
+    --err-bg: #3d1c22;
+    --err-text: #f87171;
+    --badge-amber-bg: #3a2c0b;
+    --badge-amber-text: #fcd34d;
+    --scan-error: #fb7185;
+    --meter-negative: #fbbf24;
+
+    --net-edge: #4a547f;
+    --net-edge-common: #5b6690;
+    --net-common-fill: #2c355f;
+    --net-common-stroke: #5b6690;
+    --net-other-fill: #232a4e;
+    --net-other-stroke: #4a5170;
+
+    --shadow: 0 1px 2px rgb(0 0 0 / 30%), 0 4px 14px rgb(0 0 0 / 32%);
+    --shadow-lg: 0 18px 50px rgb(0 0 0 / 55%);
+    --shadow-accent: 0 2px 8px rgb(0 0 0 / 40%);
+    --backdrop: rgb(3 5 14 / 62%);
+    --focus-ring: rgb(139 156 249 / 45%);
+  }
 }
 
 * {
@@ -32,14 +167,17 @@
 
 html {
   min-width: 320px;
-  background: #ffffff;
+  scroll-behavior: smooth;
+  background: var(--bg-app);
 }
 
 body {
   margin: 0;
   min-width: 320px;
   min-height: 100vh;
-  background: #ffffff;
+  color: var(--ink);
+  background: var(--bg-app);
+  transition: background-color 240ms ease, color 240ms ease;
 }
 
 button,
@@ -67,8 +205,9 @@ select:disabled {
 button:focus-visible,
 input:focus-visible,
 select:focus-visible,
+[role="button"]:focus-visible,
 label:has(input:focus-visible) {
-  outline: 3px solid rgb(52 75 185 / 35%);
+  outline: 3px solid var(--focus-ring);
   outline-offset: 2px;
 }
 
@@ -96,9 +235,36 @@ ol {
   padding: 0;
 }
 
+::placeholder {
+  color: var(--faint);
+  opacity: 1;
+}
+
 ::selection {
-  color: #ffffff;
+  color: var(--on-accent);
   background: var(--indigo);
+}
+
+/* ── スクロールバー ── */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  border: 2px solid transparent;
+  border-radius: 999px;
+  background: var(--line-strong);
+  background-clip: padding-box;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--faint);
+  background-clip: padding-box;
 }
 
 .sr-only {
@@ -112,4 +278,3 @@ ol {
   white-space: nowrap;
   border: 0;
 }
-
